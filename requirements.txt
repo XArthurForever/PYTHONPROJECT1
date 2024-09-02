@@ -1,0 +1,10 @@
+fastapi[all]
+uvicorn[standard]
+gunicorn
+requests
+structlog
+circuitbreaker
+prometheus_client
+tenacity
+PyYAML
+tenacity

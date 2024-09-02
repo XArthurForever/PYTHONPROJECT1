@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  subapp1:
+    build:
+      context: ./subapps/subapp1  # Path to the Dockerfile directory for subapp1
+    image: subapps/subapp1:latest
+    command: uvicorn app:app --host 0.0.0.0 --port 8001 --reload
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./subapps/subapp1:/app  # Mounts the local subapp1 directory to /app in the container
+
+  subapp2:
+    build:
+      context: ./subapps/subapp2  # Path to the Dockerfile directory for subapp2
+    image: subapps/subapp2:latest
+    command: uvicorn app:app --host 0.0.0.0 --port 8002 --reload
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./subapps/subapp2:/app  # Mounts the local subapp2 directory to /app in the container
